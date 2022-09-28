@@ -1,0 +1,52 @@
+body {
+  /* background: yellow; */
+  display: grid;
+  justify-items: center;
+}
+form {
+  display: flex;
+  align-items: center;
+}
+.input {
+  margin: 2vh 0 2vh 0;
+  height: 5vh;
+}
+.btn,
+.btnSelect {
+  background: red;
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  font-size: clamp(24px, 2vw, 2.1vw);
+  padding: 1vh 1vw 1vh 1vw;
+  cursor: pointer;
+  margin-left: 1vw;
+}
+.selectDiv {
+  margin: 4vh 0 2vh 0;x
+  display: flex;
+  align-items: center;
+}
+.updateError {
+  display:none;
+  font-size: clamp(20px, 1.8vw, 2vw);
+}
+.btnSelect {
+  font-size: clamp(20px, 1.7vw, 1.75vw);
+  padding: 0.5vh 1vw 0.5vh 1vw;
+}
+.p {
+  font-size: clamp(24px, 2vw, 2.1vw);
+  color: red;
+}
+.select {
+  height: 5vh;
+}
+
+@media all and (max-width: 1050px) {
+  .btn,
+  .btnSelect {
+    padding: 1vh 3vw 1vh 3vw;
+  }
+}
