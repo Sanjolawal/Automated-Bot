@@ -4,6 +4,7 @@ let shuffled;
 let first1 = 10000;
 let second2 = 60000;
 let name = `nm3271132`;
+
 function Immediate() {
   fetch(`http://localhost:3000/shuffles`)
     .then((response) => response.json())
@@ -24,6 +25,7 @@ function Immediate() {
       name = `nm2018790`;
     });
 }
+
 Immediate();
 
 myInterval2 = setTimeout(() => {
