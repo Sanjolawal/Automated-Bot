@@ -51,7 +51,10 @@ async function main() {
       deviceScaleFactor: 1,
     });
 
-    await page.goto(`https://www.imdb.com/name/${name}/`);
+    await page.goto(`https://www.imdb.com/name/${name}/`, {
+      waitUntil: "load",
+      timeout: 0,
+    });
     const all = await page.$$(`.inline a`);
     const a = Math.floor(4 * Math.random());
 
@@ -88,7 +91,10 @@ async function others() {
       height: 780,
       deviceScaleFactor: 1,
     });
-    await page.goto(`https://www.imdb.com/name/${name}/`);
+    await page.goto(`https://www.imdb.com/name/${name}/`, {
+      waitUntil: "load",
+      timeout: 0,
+    });
     const all = await page.$$(`.filmo-category-section a`);
     if (name === `nm3271132`) {
       number = 23;
