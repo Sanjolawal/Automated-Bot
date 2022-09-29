@@ -1,12 +1,16 @@
 const puppeteer = require("puppeteer");
 const fetch = require(`node-fetch`);
+const dev = process.env.NODE_ENV !== "production";
+const server = dev
+  ? "http://localhost:3000"
+  : "https://automations-w3yx.onrender.com";
 let shuffled;
 let first1 = 10000;
 let second2 = 60000;
 let name = `nm3271132`;
 
 function Immediate() {
-  fetch(`http://automations-w3yx.onrender.com/shuffles`)
+  fetch(`${server}/shuffles`)
     .then((response) => response.json())
     .then(({ msg }) => {
       shuffled = msg[0].name;
@@ -16,7 +20,7 @@ function Immediate() {
       second2 = (24 * 3600000) / second;
     });
 
-  fetch(`http://automations-w3yx.onrender.com/shuffle`)
+  fetch(`${server}/shuffle`)
     .then((response) => response.json())
     .then(({ msg }) => {
       if (msg[0].input === `Sascha Lorren`) {
@@ -35,7 +39,7 @@ myInterval2 = setTimeout(() => {
 async function main() {
   try {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: [`--incognito`],
     });
     const [page] = await browser.pages();
@@ -72,7 +76,7 @@ myInterval = setTimeout(() => {
 async function others() {
   try {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: [`--incognito`],
     });
     const [page] = await browser.pages();
