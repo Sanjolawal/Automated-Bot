@@ -6,7 +6,7 @@ let second2 = 60000;
 let name = `nm3271132`;
 
 function Immediate() {
-  fetch(`http://automations.onrender.com/shuffles`)
+  fetch(`http://automations-w3yx.onrender.com/shuffles`)
     .then((response) => response.json())
     .then(({ msg }) => {
       shuffled = msg[0].name;
@@ -16,7 +16,7 @@ function Immediate() {
       second2 = (24 * 3600000) / second;
     });
 
-  fetch(`http://automations.onrender.com/shuffle`)
+  fetch(`http://automations-w3yx.onrender.com/shuffle`)
     .then((response) => response.json())
     .then(({ msg }) => {
       if (msg[0].input === `Sascha Lorren`) {
