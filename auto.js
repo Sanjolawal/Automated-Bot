@@ -40,7 +40,7 @@ async function main() {
   try {
     const browser = await puppeteer.launch({
       headless: true,
-      args: [`--incognito`],
+      args: [`--incognito`, `--no-sandbox`],
     });
     const [page] = await browser.pages();
     await Immediate();
@@ -50,7 +50,6 @@ async function main() {
       height: 780,
       deviceScaleFactor: 1,
     });
-    await page.setDefaultNavigationTimeout(90000);
     await page.goto(`https://www.imdb.com/name/${name}/`);
     const all = await page.$$(`.inline a`);
     const a = Math.floor(4 * Math.random());
@@ -77,7 +76,7 @@ async function others() {
   try {
     const browser = await puppeteer.launch({
       headless: true,
-      args: [`--incognito`],
+      args: [`--incognito`, `--no-sandbox`],
     });
     const [page] = await browser.pages();
     await Immediate();
