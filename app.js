@@ -3,9 +3,11 @@ const app = express();
 const mongoose = require(`mongoose`);
 const dotenv = require(`dotenv`).config();
 
+let port = process.env.PORT || 3000;
+
 const Run = async () => {
   try {
-    app.listen(3000, console.log(`listening`));
+    app.listen(port, console.log(`listening to ${port}`));
     const me = await mongoose.connect(process.env.uri);
     console.log(`connected to DB`);
     const schema = mongoose.Schema({
