@@ -50,6 +50,7 @@ async function main() {
       height: 780,
       deviceScaleFactor: 1,
     });
+    await page.setDefaultNavigationTimeout(0);
     await page.goto(`https://www.imdb.com/name/${name}/`);
     const all = await page.$$(`.inline a`);
     const a = Math.floor(4 * Math.random());
