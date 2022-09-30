@@ -88,6 +88,7 @@ async function others() {
       height: 780,
       deviceScaleFactor: 1,
     });
+    await page.setDefaultNavigationTimeout(0);
     await page.goto(`https://www.imdb.com/name/${name}/`, {
       waitUntil: "load",
       timeout: 0,
