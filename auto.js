@@ -3,7 +3,7 @@ const fetch = require(`node-fetch`);
 const dev = process.env.NODE_ENV !== "production";
 const server = dev
   ? "http://localhost:3000"
-  : "https://automations-w3yx.onrender.com";
+  : "https://imdbbot.onrender.com/";
 let shuffled;
 let first1 = 10000;
 let second2 = 60000;
