@@ -1,9 +1,7 @@
 const puppeteer = require("puppeteer");
 const fetch = require(`node-fetch`);
 const dev = process.env.NODE_ENV !== "production";
-const server = dev
-  ? "http://localhost:3000"
-  : "https://imdbbot.onrender.com";
+const server = dev ? "http://localhost:3000" : "https://imdbbot.onrender.com";
 let shuffled;
 let first1 = 10000;
 let second2 = 60000;
@@ -39,7 +37,7 @@ myInterval2 = setTimeout(() => {
 async function main() {
   try {
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
       args: [`--incognito`, `--no-sandbox`],
     });
     const [page] = await browser.pages();
@@ -52,8 +50,12 @@ async function main() {
     });
     await page.setDefaultNavigationTimeout(0);
     await page.goto(`https://www.imdb.com/name/${name}/`);
-    const all = await page.$$(`.inline a`);
+    let all = await page.$$(`.knownfor-title-role a`);
     const a = Math.floor(4 * Math.random());
+    if (!all[a]) {
+      all = await page.$$(`.ipc-primary-image-list-card__title`);
+      const a = Math.floor(4 * Math.random());
+    }
 
     const [response] = await Promise.all([
       page.waitForNavigation({ waitUntil: "networkidle2" }),
@@ -76,7 +78,7 @@ myInterval = setTimeout(() => {
 async function others() {
   try {
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
       args: [`--incognito`, `--no-sandbox`],
     });
     const [page] = await browser.pages();
@@ -93,13 +95,18 @@ async function others() {
       waitUntil: "load",
       timeout: 0,
     });
-    const all = await page.$$(`.filmo-category-section a`);
+    let all = await page.$$(`.odd b`);
     if (name === `nm3271132`) {
-      number = 23;
+      number = 10;
     } else {
-      number = 43;
+      number = 13;
     }
     const a = Math.floor(number * Math.random());
+    console.log(a);
+    if (!all[a]) {
+      all = await page.$$(`.ipc-metadata-list-summary-item__t`);
+      const a = Math.floor(number * Math.random());
+    }
 
     const [response] = await Promise.all([
       page.waitForNavigation({ waitUntil: "networkidle2" }),
