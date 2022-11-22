@@ -37,7 +37,7 @@ myInterval2 = setTimeout(() => {
 async function main() {
   try {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: [`--incognito`, `--no-sandbox`],
     });
     const [page] = await browser.pages();
@@ -78,7 +78,7 @@ myInterval = setTimeout(() => {
 async function others() {
   try {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: [`--incognito`, `--no-sandbox`],
     });
     const [page] = await browser.pages();
