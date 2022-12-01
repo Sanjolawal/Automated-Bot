@@ -41,6 +41,9 @@ async function main() {
       args: [`--incognito`, `--no-sandbox`],
     });
     const [page] = await browser.pages();
+    await page.setUserAgent(
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36"
+    );
     await Immediate();
     clearTimeout(myInterval2);
     await page.setViewport({
@@ -82,6 +85,9 @@ async function others() {
       args: [`--incognito`, `--no-sandbox`],
     });
     const [page] = await browser.pages();
+    await page.setUserAgent(
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36"
+    );
     await Immediate();
     clearTimeout(myInterval);
 
