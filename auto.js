@@ -99,7 +99,7 @@ async function others() {
     if (name === `nm3271132`) {
       number = 10;
     } else {
-      number = 10;
+      number = 13;
     }
     const a = Math.floor(number * Math.random());
     console.log(a);
